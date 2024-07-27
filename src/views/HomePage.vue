@@ -1,6 +1,6 @@
 <template>
   <h1>listagem</h1>
-  <input type="text" placeholder="Ingrediente" v-model="ingrediente"><br>
+  <input class="" type="text" placeholder="Ingrediente" v-model="ingrediente"><br>
   <input type="number" placeholder="quantidade usado  (em g)" v-model="quantidadeUsada"><br>
   <input type="number" placeholder="quantidade do produto (em g ou unidades)" v-model="quantidadeProduto"><br>
   <input type="text" placeholder="Valor gasto" v-model="valor"><br>
@@ -31,6 +31,7 @@
 </template>
 
 <script setup lang="ts">
+import Input from '../components/Input.vue'
 import { ref } from 'vue';
 import type { Item } from '../types/Ingredientes';
 const ingrediente = ref<string>();
