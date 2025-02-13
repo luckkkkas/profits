@@ -1,0 +1,9 @@
+FROM postgres:15
+
+ENV POSTGRES_USER=lucas
+ENV POSTGRES_PASSWORD=SKOI7617
+ENV POSTGRES_DB=profits
+
+COPY ./init.sql /docker-entrypoint-init.d/
+
+EXPOSE 2222

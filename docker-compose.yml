@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  postgres:
+    build:
+      context: ./data-base
+      dockerfile: dockerfile
+    container_name: profits
+    restart: always
+    ports:
+      - "2222:5432"
+    environment:
+      POSTGRES_USER: lucas
+      POSTGRES_PASSWORD: SKOI7617
+      POSTGRES_DB: profits
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./data-base/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./data-base/postgresql.conf:/etc/postgresql/postgresql.conf
+      - ./data-base/pg_hba.conf:/etc/postgresql/pg_hba.conf
+    command: >
+      postgres -c config_file=/etc/postgresql/postgresql.conf
+
+volumes:
+  pgdata:
